@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D7E67A6-42D7-44CF-A6B2-275CD2B2FE94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PrisonManagementSystemProjectv0</RootNamespace>
+    <AssemblyName>PrisonManagementSystemProjectv0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>prison_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\PrisonData\Case.cs" />
+    <Compile Include="BusinessLayer\PrisonData\PrisonBlock.cs" />
+    <Compile Include="BusinessLayer\PrisonData\PrisonCell.cs" />
+    <Compile Include="BusinessLayer\PrisonData\DoctorInfo.cs" />
+    <Compile Include="BusinessLayer\PrisonData\GuardInfo.cs" />
+    <Compile Include="BusinessLayer\PrisonData\Prisoner.cs" />
+    <Compile Include="BusinessLayer\PrisonData\ReceptionInfo.cs" />
+    <Compile Include="BusinessLayer\PrisonData\Treatment.cs" />
+    <Compile Include="BusinessLayer\PrisonData\Visit.cs" />
+    <Compile Include="BusinessLayer\PrisonData\Visitor.cs" />
+    <Compile Include="BusinessLayer\ReportDataSet\PrisonerCaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrisonerCaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\ReportDataSet\TreatmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreatmentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\ReportDataSet\VisitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\UserTypes\Administrator.cs" />
+    <Compile Include="BusinessLayer\UserTypes\Doctor.cs" />
+    <Compile Include="BusinessLayer\UserTypes\Guard.cs" />
+    <Compile Include="BusinessLayer\UserTypes\Reception.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\CaseDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\DoctorInfoDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\GuardInfoDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\PrisonBlockDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\PrisonCellDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\PrisonerDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\TreatmentDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\VisitDBLayer.cs" />
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\VisitorDBLayer.cs" />
+    <Compile Include="PresentationLayer\Administrator\AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\AdministratorForm.Designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\NewEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\NewEmployeeForm.Designer.cs">
+      <DependentUpon>NewEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\SearchEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\SearchEmployeeForm.Designer.cs">
+      <DependentUpon>SearchEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\SelectDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\SelectDoctorForm.Designer.cs">
+      <DependentUpon>SelectDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\UpdateEmployeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\UpdateEmployeForm.Designer.cs">
+      <DependentUpon>UpdateEmployeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\ViewAllEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\EmployeeForms\ViewAllEmployeeForm.Designer.cs">
+      <DependentUpon>ViewAllEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\PrisonerReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\PrisonerReportsForm.Designer.cs">
+      <DependentUpon>PrisonerReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\SearchPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\SearchPrisonerForm.Designer.cs">
+      <DependentUpon>SearchPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\ViewAllPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\PrisonerForms\ViewAllPrisonerForm.Designer.cs">
+      <DependentUpon>ViewAllPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\DoctorTreatmentReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\DoctorTreatmentReportForm.Designer.cs">
+      <DependentUpon>DoctorTreatmentReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerCaseReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerCaseReportForm.Designer.cs">
+      <DependentUpon>PrisonerCaseReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerTreatmentReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerTreatmentReportForm.Designer.cs">
+      <DependentUpon>PrisonerTreatmentReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerVisitReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\PrisonerVisitReportForm.Designer.cs">
+      <DependentUpon>PrisonerVisitReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\VisitorVisitReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\ReportForms\VisitorVisitReportForm.Designer.cs">
+      <DependentUpon>VisitorVisitReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\Reports\DoctorTreatmemntReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoctorTreatmemntReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\Reports\PrisonerCaseReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrisonerCaseReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\Reports\PrisonerTreatmentReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrisonerTreatmentReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\Reports\PrisonerVisitReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrisonerVisitReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\Reports\VisitorVisitReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitorVisitReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\SearchVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\SearchVisitorForm.Designer.cs">
+      <DependentUpon>SearchVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\SelectVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\SelectVisitorForm.Designer.cs">
+      <DependentUpon>SelectVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\ViewAllVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Administrator\VisitorForms\ViewAllVisitorForm.Designer.cs">
+      <DependentUpon>ViewAllVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ChangeUserCredentialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ChangeUserCredentialsForm.Designer.cs">
+      <DependentUpon>ChangeUserCredentialsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\DoctorDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\DoctorDashboardForm.Designer.cs">
+      <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\DoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\DoctorForm.Designer.cs">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\PrisonerForms\DoctorSearchPrisonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\PrisonerForms\DoctorSearchPrisonForm.Designer.cs">
+      <DependentUpon>DoctorSearchPrisonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\PrisonerForms\DoctorViewAllPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\PrisonerForms\DoctorViewAllPrisonerForm.Designer.cs">
+      <DependentUpon>DoctorViewAllPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\NewTreatmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\NewTreatmentForm.Designer.cs">
+      <DependentUpon>NewTreatmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\SearchTreatmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\SearchTreatmentForm.Designer.cs">
+      <DependentUpon>SearchTreatmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\UpdateTreatmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\UpdateTreatmentForm.Designer.cs">
+      <DependentUpon>UpdateTreatmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\ViewAllTreatmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Doctor\TreatmentForms\ViewAllTreatmentForm.Designer.cs">
+      <DependentUpon>ViewAllTreatmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\FirstTimeSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\FirstTimeSignUp.Designer.cs">
+      <DependentUpon>FirstTimeSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer\UserDBLayer.cs" />
+    <Compile Include="PresentationLayer\Guard\GuardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Guard\GuardForm.Designer.cs">
+      <DependentUpon>GuardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Guard\PrisonerForms\NewPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Guard\PrisonerForms\NewPrisonerForm.Designer.cs">
+      <DependentUpon>NewPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\OldLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\OldLoginForm.Designer.cs">
+      <DependentUpon>OldLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\ReceptionSearchPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\ReceptionSearchPrisonerForm.Designer.cs">
+      <DependentUpon>ReceptionSearchPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\ReceptionViewAllPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\ReceptionViewAllPrisonerForm.Designer.cs">
+      <DependentUpon>ReceptionViewAllPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\SelectPrisonerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\PrisonerForms\SelectPrisonerForm.Designer.cs">
+      <DependentUpon>SelectPrisonerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\ReceptionDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\ReceptionDashboardForm.Designer.cs">
+      <DependentUpon>ReceptionDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\ReceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\ReceptionForm.Designer.cs">
+      <DependentUpon>ReceptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\NewVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\NewVisitForm.Designer.cs">
+      <DependentUpon>NewVisitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\SearchVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\SearchVisitForm.Designer.cs">
+      <DependentUpon>SearchVisitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\ViewAllVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitForms\ViewAllVisitForm.Designer.cs">
+      <DependentUpon>ViewAllVisitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\NewVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\NewVisitorForm.Designer.cs">
+      <DependentUpon>NewVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\ReceptionSearchVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\ReceptionSearchVisitorForm.Designer.cs">
+      <DependentUpon>ReceptionSearchVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\ReceptionViewAllVisitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Reception\VisitorForms\ReceptionViewAllVisitorForm.Designer.cs">
+      <DependentUpon>ReceptionViewAllVisitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BusinessLayer\UserTypes\User.cs" />
+    <EmbeddedResource Include="PresentationLayer\Administrator\AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\EmployeeForms\NewEmployeeForm.resx">
+      <DependentUpon>NewEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\EmployeeForms\SearchEmployeeForm.resx">
+      <DependentUpon>SearchEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\EmployeeForms\SelectDoctorForm.resx">
+      <DependentUpon>SelectDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\EmployeeForms\UpdateEmployeForm.resx">
+      <DependentUpon>UpdateEmployeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\EmployeeForms\ViewAllEmployeeForm.resx">
+      <DependentUpon>ViewAllEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\PrisonerForms\PrisonerReportsForm.resx">
+      <DependentUpon>PrisonerReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\PrisonerForms\SearchPrisonerForm.resx">
+      <DependentUpon>SearchPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\PrisonerForms\ViewAllPrisonerForm.resx">
+      <DependentUpon>ViewAllPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\ReportForms\DoctorTreatmentReportForm.resx">
+      <DependentUpon>DoctorTreatmentReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\ReportForms\PrisonerCaseReportForm.resx">
+      <DependentUpon>PrisonerCaseReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\ReportForms\PrisonerTreatmentReportForm.resx">
+      <DependentUpon>PrisonerTreatmentReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\ReportForms\PrisonerVisitReportForm.resx">
+      <DependentUpon>PrisonerVisitReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\ReportForms\VisitorVisitReportForm.resx">
+      <DependentUpon>VisitorVisitReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\Reports\DoctorTreatmemntReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DoctorTreatmemntReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\Reports\PrisonerCaseReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrisonerCaseReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\Reports\PrisonerTreatmentReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrisonerTreatmentReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\Reports\PrisonerVisitReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrisonerVisitReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\Reports\VisitorVisitReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VisitorVisitReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\VisitorForms\SearchVisitorForm.resx">
+      <DependentUpon>SearchVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\VisitorForms\SelectVisitorForm.resx">
+      <DependentUpon>SelectVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Administrator\VisitorForms\ViewAllVisitorForm.resx">
+      <DependentUpon>ViewAllVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ChangeUserCredentialsForm.resx">
+      <DependentUpon>ChangeUserCredentialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\DoctorDashboardForm.resx">
+      <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\DoctorForm.resx">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\PrisonerForms\DoctorSearchPrisonForm.resx">
+      <DependentUpon>DoctorSearchPrisonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\PrisonerForms\DoctorViewAllPrisonerForm.resx">
+      <DependentUpon>DoctorViewAllPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\TreatmentForms\NewTreatmentForm.resx">
+      <DependentUpon>NewTreatmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\TreatmentForms\SearchTreatmentForm.resx">
+      <DependentUpon>SearchTreatmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\TreatmentForms\UpdateTreatmentForm.resx">
+      <DependentUpon>UpdateTreatmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Doctor\TreatmentForms\ViewAllTreatmentForm.resx">
+      <DependentUpon>ViewAllTreatmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\FirstTimeSignUp.resx">
+      <DependentUpon>FirstTimeSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Guard\GuardForm.resx">
+      <DependentUpon>GuardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Guard\PrisonerForms\NewPrisonerForm.resx">
+      <DependentUpon>NewPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\OldLoginForm.resx">
+      <DependentUpon>OldLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\PrisonerForms\ReceptionSearchPrisonerForm.resx">
+      <DependentUpon>ReceptionSearchPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\PrisonerForms\ReceptionViewAllPrisonerForm.resx">
+      <DependentUpon>ReceptionViewAllPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\PrisonerForms\SelectPrisonerForm.resx">
+      <DependentUpon>SelectPrisonerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\ReceptionDashboardForm.resx">
+      <DependentUpon>ReceptionDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\ReceptionForm.resx">
+      <DependentUpon>ReceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitForms\NewVisitForm.resx">
+      <DependentUpon>NewVisitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitForms\SearchVisitForm.resx">
+      <DependentUpon>SearchVisitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitForms\ViewAllVisitForm.resx">
+      <DependentUpon>ViewAllVisitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitorForms\NewVisitorForm.resx">
+      <DependentUpon>NewVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitorForms\ReceptionSearchVisitorForm.resx">
+      <DependentUpon>ReceptionSearchVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Reception\VisitorForms\ReceptionViewAllVisitorForm.resx">
+      <DependentUpon>ReceptionViewAllVisitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="BusinessLayer\ReportDataSet\PrisonerCaseDataSet.xsc">
+      <DependentUpon>PrisonerCaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\PrisonerCaseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrisonerCaseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\PrisonerCaseDataSet.xss">
+      <DependentUpon>PrisonerCaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\TreatmentDataSet.xsc">
+      <DependentUpon>TreatmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\TreatmentDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TreatmentDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\TreatmentDataSet.xss">
+      <DependentUpon>TreatmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\VisitDataSet.xsc">
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\VisitDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisitDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BusinessLayer\ReportDataSet\VisitDataSet.xss">
+      <DependentUpon>VisitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccessLayer\PrisonDataDBLayer\ReceptionInfoDBLayer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prisoner_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prison_building_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prison_building_120px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_in_form_password_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name_tag_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waiting_room_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_all_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prisoner_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_75px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_button_19px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_user_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_rounded_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guard_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reception_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\treatment_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_25px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visit_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_creds_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prisoner_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visitor_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visit_30px.png" />
+    <None Include="Resources\visitor_30px.png" />
+    <None Include="Resources\treatment_30px.png" />
+    <None Include="Resources\reception_75px.png" />
+    <None Include="Resources\case_30px.png" />
+    <None Include="Resources\security_guard_75px.png" />
+    <None Include="Resources\doctor_male_75px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="prison_icon.ico" />
+    <None Include="Resources\doctor_30px.png" />
+    <None Include="Resources\prisoner_30px.png" />
+    <None Include="Resources\report_35px.png" />
+    <None Include="Resources\home_page_30px.png" />
+    <None Include="Resources\visit_100px.png" />
+    <None Include="Resources\treatment_100px.png" />
+    <None Include="Resources\change_credentials_30px.png" />
+    <None Include="Resources\logout_30px.png" />
+    <None Include="Resources\security_guard_100px.png" />
+    <None Include="Resources\waiting_room_100px.png" />
+    <None Include="Resources\reception_100px.png" />
+    <None Include="Resources\doctor_male_100px.png" />
+    <None Include="Resources\prisoner_100px.png" />
+    <None Include="Resources\select_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

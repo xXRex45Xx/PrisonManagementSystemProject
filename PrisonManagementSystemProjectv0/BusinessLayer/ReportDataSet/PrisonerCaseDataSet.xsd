@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PrisonerCaseDataSet" targetNamespace="http://tempuri.org/PrisonerCaseDataSet.xsd" xmlns:mstns="http://tempuri.org/PrisonerCaseDataSet.xsd" xmlns="http://tempuri.org/PrisonerCaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PrisonerCaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PrisonerCaseDataSet" msprop:Generator_UserDSName="PrisonerCaseDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PrisonerCase" msprop:Generator_TableClassName="PrisonerCaseDataTable" msprop:Generator_TableVarName="tablePrisonerCase" msprop:Generator_TablePropName="PrisonerCase" msprop:Generator_RowDeletingName="PrisonerCaseRowDeleting" msprop:Generator_RowChangingName="PrisonerCaseRowChanging" msprop:Generator_RowEvHandlerName="PrisonerCaseRowChangeEventHandler" msprop:Generator_RowDeletedName="PrisonerCaseRowDeleted" msprop:Generator_UserTableName="PrisonerCase" msprop:Generator_RowChangedName="PrisonerCaseRowChanged" msprop:Generator_RowEvArgName="PrisonerCaseRowChangeEvent" msprop:Generator_RowClassName="PrisonerCaseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="caseNo" msprop:Generator_ColumnVarNameInTable="columncaseNo" msprop:Generator_ColumnPropNameInRow="caseNo" msprop:Generator_ColumnPropNameInTable="caseNoColumn" msprop:Generator_UserColumnName="caseNo" type="xs:int" minOccurs="0" />
+              <xs:element name="prisonerNo" msprop:Generator_ColumnVarNameInTable="columnprisonerNo" msprop:Generator_ColumnPropNameInRow="prisonerNo" msprop:Generator_ColumnPropNameInTable="prisonerNoColumn" msprop:Generator_UserColumnName="prisonerNo" type="xs:int" minOccurs="0" />
+              <xs:element name="DefendantName" msprop:Generator_ColumnVarNameInTable="columnDefendantName" msprop:Generator_ColumnPropNameInRow="DefendantName" msprop:Generator_ColumnPropNameInTable="DefendantNameColumn" msprop:Generator_UserColumnName="DefendantName" type="xs:string" minOccurs="0" />
+              <xs:element name="crimeType" msprop:Generator_ColumnVarNameInTable="columncrimeType" msprop:Generator_ColumnPropNameInRow="crimeType" msprop:Generator_ColumnPropNameInTable="crimeTypeColumn" msprop:Generator_UserColumnName="crimeType" type="xs:string" minOccurs="0" />
+              <xs:element name="dateOfCrime" msprop:Generator_ColumnVarNameInTable="columndateOfCrime" msprop:Generator_ColumnPropNameInRow="dateOfCrime" msprop:Generator_ColumnPropNameInTable="dateOfCrimeColumn" msprop:Generator_UserColumnName="dateOfCrime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dateOfCaseClosed" msprop:Generator_ColumnVarNameInTable="columndateOfCaseClosed" msprop:Generator_ColumnPropNameInRow="dateOfCaseClosed" msprop:Generator_ColumnPropNameInTable="dateOfCaseClosedColumn" msprop:Generator_UserColumnName="dateOfCaseClosed" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="yearDecided" msprop:Generator_ColumnVarNameInTable="columnyearDecided" msprop:Generator_ColumnPropNameInRow="yearDecided" msprop:Generator_ColumnPropNameInTable="yearDecidedColumn" msprop:Generator_UserColumnName="yearDecided" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
